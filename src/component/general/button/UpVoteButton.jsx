@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
-import { ThreadVoteButton } from '../../styled/thread';
 import StyledIcon from '../../styled/icon.tsx';
+import { VoteButton } from '../../styled/button';
 
 function UpVoteButton({
   isUpvote, voteCount, handler, iconSize,
 }) {
   return (
-    <ThreadVoteButton type="button" onClick={handler}>
+    <VoteButton type="button" onClick={handler}>
       <StyledIcon iconSize={iconSize}>
         {isUpvote ? <AiFillLike /> : <AiOutlineLike />}
       </StyledIcon>
       {voteCount}
-    </ThreadVoteButton>
+    </VoteButton>
   );
 }
 

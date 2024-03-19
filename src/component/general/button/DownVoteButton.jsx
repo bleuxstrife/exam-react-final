@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AiFillDislike, AiOutlineDislike } from 'react-icons/ai';
 import StyledIcon from '../../styled/icon.tsx';
-import { ThreadVoteButton } from '../../styled/thread';
+import { VoteButton } from '../../styled/button';
 
 function DownVoteButton({
   isDownvote, voteCount, handler, iconSize,
 }) {
   return (
-    <ThreadVoteButton type="button" onClick={handler}>
+    <VoteButton type="button" onClick={handler}>
       <StyledIcon iconSize={iconSize}>
         {isDownvote ? <AiFillDislike /> : <AiOutlineDislike />}
       </StyledIcon>
       {voteCount}
-    </ThreadVoteButton>
+    </VoteButton>
   );
 }
 

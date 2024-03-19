@@ -1,29 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ActionContainer } from '../../styled/container';
+import { ActButton } from '../../styled/button';
 
-function ActionButton({
-  className, title, onClickAction, child,
-}) {
+function ActionButton({ title, onClickAction, child }) {
   return (
-    <div className={className}>
-      <button
-        className="action"
+    <ActionContainer>
+      <ActButton
         type="button"
         title={title}
         onClick={(e) => onClickAction(e)}
       >
         {child}
-      </button>
-    </div>
+      </ActButton>
+    </ActionContainer>
   );
 }
 
-ActionButton.defaultProps = {
-  className: null,
-};
-
 ActionButton.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   onClickAction: PropTypes.func.isRequired,
   child: PropTypes.element.isRequired,

@@ -26,9 +26,18 @@ const ListContainer = styled.div`
     padding: 16px 8px;
 `;
 
+const ActionContainer = styled.div`
+    position: fixed;
+    display: flex;
+    gap: 16px;
+    bottom: 32px;
+    right: 32px;
+`;
+
 export {
   AppContainer,
   MainContainer,
   PageContainer,
   ListContainer,
+  ActionContainer,
 };

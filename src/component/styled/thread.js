@@ -49,20 +49,6 @@ const ThreadComment = styled.div`
     gap: 4px;
 `;
 
-const ThreadVoteButton = styled.button`
-    align-items: center;
-    background-color: initial;
-    border: 0;
-    cursor: pointer;
-    display: flex
-`;
-
-// const ThreadCommentIC = styled(SlActionUndo)`
-//     font-size: 18px;
-// `;
-
-// const ThreadUpVoteIC = styled();
-
 export {
   ThreadContainer,
   ThreadHeader,
@@ -70,5 +56,4 @@ export {
   ThreadBody,
   ThreadFooter,
   ThreadComment,
-  ThreadVoteButton,
 };
