@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavButton } from '../../styled/header';
+import { NavButton } from '../../styled/navigation';
 
 function NavItem({ title, icon, onClick = null }) {
   return (

@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { LeaderBContainer, LeaderBImg, LeaderBUserInfo } from '../../styled/leader-board';
+import { PLabel } from '../../styled/label';
 
 function LeaderboardItem({ user, score }) {
   return (
-    <div className="leaderboard-item">
-      <div className="leaderboard-item__user-info">
-        <img src={user.avatar} alt={user.name} />
-        <p>{user.name}</p>
-      </div>
-      <p className="leaderboard-item__score">{score}</p>
-    </div>
+    <LeaderBContainer>
+      <LeaderBUserInfo>
+        <LeaderBImg src={user.avatar} alt={user.name} />
+        <PLabel fontSize="18px">{user.name}</PLabel>
+      </LeaderBUserInfo>
+      <PLabel fontSize="23px">{score}</PLabel>
+    </LeaderBContainer>
   );
 }
 

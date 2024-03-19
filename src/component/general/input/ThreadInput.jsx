@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../../../hooks/useInput';
+import { Button } from '../../styled/button';
+import { Form, Input, InputBody } from '../../styled/input';
 
 function ThreadInput({ submitHandler }) {
   const [title, handleTitleChange] = useInput('');
@@ -13,28 +15,25 @@ function ThreadInput({ submitHandler }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="add-thread-page__input">
-      <input
-        className="add-thread-page__input_title"
+    <Form>
+      <Input
         type="text"
         placeholder="Judul"
         value={title}
         onChange={handleTitleChange}
       />
-      <input
-        className="add-thread-page__input_category"
+      <Input
         type="text"
         placeholder="Kategori"
         value={category}
         onChange={handleCategoryChange}
       />
-      <textarea
-        className="add-thread-page__input__body"
+      <InputBody
         value={body}
         onChange={handleBodyChange}
       />
-      <button type="submit">Tambahkan</button>
-    </form>
+      <Button type="submit" onClick={(e) => onSubmit(e)}>Tambahkan</Button>
+    </Form>
 
   );
 }

@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LeaderboardItem, { leaderboardShape } from '../item/LeaderboardItem';
+import { ListContainer } from '../../styled/container';
+import { PLabel } from '../../styled/label';
+import baseColor from '../../../utils/base-color';
+import { LeaderBHeader } from '../../styled/leader-board';
 
 function LeaderboardList({ leaderboards }) {
   if (leaderboards.length === 0) {
     return (
-      <div className="leaderboard-list-empty">
-        <p>Tidak ada data</p>
-      </div>
+      <ListContainer>
+        <PLabel textAlign="center" color={baseColor.onBackgroundGrey}>
+          Tidak ada data
+        </PLabel>
+      </ListContainer>
     );
   }
 
   return (
-    <div className="leaderboard-list">
-      <header>
-        <p className="leaderboard-list__user-label">Pengguna</p>
-        <p>Skor</p>
-      </header>
+    <ListContainer withPadding={false} display="flex" gap="16px" flexDirection="column">
+      <LeaderBHeader>
+        <PLabel flex="1 1">Pengguna</PLabel>
+        <PLabel>Skor</PLabel>
+      </LeaderBHeader>
       {
             leaderboards.map((item) => <LeaderboardItem key={item.user.id} {...item} />)
       }
-    </div>
+    </ListContainer>
   );
 }
 

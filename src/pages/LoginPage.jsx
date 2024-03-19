@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LoginInput from '../component/general/input/LoginInput';
 import { asyncSetAuthUser } from '../states/auth/action';
+import { CustomLink, H2Label, PLabel } from '../component/styled/label';
+import { PageContainer } from '../component/styled/container';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -17,14 +19,14 @@ function LoginPage() {
   };
 
   return (
-    <section className="input-login">
-      <h2>Silahkan masuk untuk menggunakan aplikasi</h2>
+    <PageContainer>
+      <H2Label>Silahkan masuk untuk menggunakan aplikasi</H2Label>
       <LoginInput loginHandler={onLogin} />
-      <p>
+      <PLabel fontSize="20px" fontWeight="lighter">
         Belum punya akun?
-        <Link to="/register"> Silahkan daftar disini</Link>
-      </p>
-    </section>
+        <CustomLink to="/register"> Silahkan daftar disini</CustomLink>
+      </PLabel>
+    </PageContainer>
   );
 }
 

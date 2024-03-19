@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavImg } from '../../styled/header';
+import { NavImg } from '../../styled/navigation';
 
 function NavProfile({ authUser = null }) {
   return <NavImg src={authUser?.avatar} alt={authUser?.id} title={authUser?.name} />;

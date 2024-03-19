@@ -14,7 +14,7 @@ import ThreadPage from './pages/ThreadPage';
 import AddThreadPage from './pages/AddThreadPage';
 import ThreadDetailPage from './pages/ThreadDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { TitleBar, TopBar } from './component/styled/header';
+import { TitleBar, TopBar } from './component/styled/navigation';
 import { AppContainer, MainContainer } from './component/styled/container';
 
 function App() {

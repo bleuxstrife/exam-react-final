@@ -1,27 +1,33 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { asyncRegisterUser } from '../states/auth/action';
 import RegisterInput from '../component/general/input/RegisterInput';
+import { PageContainer } from '../component/styled/container';
+import { CustomLink, H2Label, PLabel } from '../component/styled/label';
 
 function RegisterPage() {
   const loginPath = '/login';
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const onRegister = ({ name, email, password }) => {
-    dispatch(asyncRegisterUser({ email, name, password }));
+  const callback = () => {
     navigate(loginPath);
+  };
+  const onRegister = ({ name, email, password }) => {
+    dispatch(asyncRegisterUser({
+      email, name, password, callback,
+    }));
   };
 
   return (
-    <section className="input-register">
-      <h2>Isi form untuk mendaftar akun</h2>
+    <PageContainer>
+      <H2Label>Isi form untuk mendaftar akun</H2Label>
       <RegisterInput registerHandler={onRegister} />
-      <p>
+      <PLabel fontSize="20px" fontWeight="lighter">
         Sudah punya akun?
-        <Link to={loginPath}>Masuk disini</Link>
-      </p>
-    </section>
+        <CustomLink to={loginPath}> Masuk disini</CustomLink>
+      </PLabel>
+    </PageContainer>
   );
 }
 

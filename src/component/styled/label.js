@@ -15,11 +15,17 @@ H2Label.defaultProps = {
 const PLabel = styled.p`
     text-align: ${(props) => props.textAlign};
     color: ${(props) => props.color};
+    flex: ${(props) => props.flex};
+    font-size: ${(props) => props.fontSize};
+    font-weight" ${(props) => props.fontWeight};
 `;
 
 PLabel.defaultProps = {
   color: baseColor.onBackground,
   textAlign: 'left',
+  flex: 'none',
+  fontSize: '16px',
+  fontWeight: 'normal',
 };
 
 const CategoryLabel = styled.p`

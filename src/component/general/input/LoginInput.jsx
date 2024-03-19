@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../../../hooks/useInput';
+import { Form, Input } from '../../styled/input';
+import { Button } from '../../styled/button';
 
 function LoginInput({ loginHandler }) {
   const [email, handleEmailChange] = useInput('');
@@ -12,11 +14,11 @@ function LoginInput({ loginHandler }) {
   }
 
   return (
-    <form onSubmit={onLogin} className="input-login">
-      <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} required />
-      <input type="password" placeholder="Password" value={password} onChange={handlePassChange} required />
-      <button type="submit">Masuk</button>
-    </form>
+    <Form>
+      <Input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+      <Input type="password" placeholder="Password" value={password} onChange={handlePassChange} />
+      <Button type="submit" onClick={(e) => onLogin(e)}>Masuk</Button>
+    </Form>
   );
 }
 

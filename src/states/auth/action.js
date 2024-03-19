@@ -24,11 +24,14 @@ function unsetAuthUserActionCreator() {
   };
 }
 
-function asyncRegisterUser({ email, name, password }) {
+function asyncRegisterUser({
+  email, name, password, callback,
+}) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
       await api.register({ email, name, password });
+      callback();
     } catch (error) {
       alert(error.message);
     }
@@ -44,7 +47,7 @@ function asyncSetAuthUser({ email, password, callback }) {
       api.putAccessToken(token);
       const authUser = await api.getUserProfile();
       callback();
-      await api.delay(100);
+      await api.delay(300);
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
       alert(error.message);

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../../../hooks/useInput';
+import { Form, Input } from '../../styled/input';
+import { Button } from '../../styled/button';
 
 function RegisterInput({ registerHandler }) {
   const [name, handleNameChange] = useInput('');
@@ -13,12 +15,12 @@ function RegisterInput({ registerHandler }) {
   }
 
   return (
-    <form onSubmit={onRegister} className="input-register">
-      <input type="text" placeholder="Nama" value={name} onChange={handleNameChange} required />
-      <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} required />
-      <input type="password" placeholder="Password" value={password} onChange={handlePassChange} required />
-      <button type="submit">Daftar</button>
-    </form>
+    <Form>
+      <Input type="text" placeholder="Nama" value={name} onChange={handleNameChange} />
+      <Input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+      <Input type="password" placeholder="Password" value={password} onChange={handlePassChange} />
+      <Button type="submit" onClick={(e) => onRegister(e)}>Daftar</Button>
+    </Form>
   );
 }
 

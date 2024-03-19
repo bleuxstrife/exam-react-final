@@ -6,7 +6,7 @@ import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 import { TfiBarChartAlt } from 'react-icons/tfi';
 import NavItem from './NavItem';
 import NavProfile from './NavProfile';
-import { Li } from '../../styled/header';
+import { Li } from '../../styled/navigation';
 
 function Navigation({ authUser = null, signOutHandler }) {
   const navigate = useNavigate();

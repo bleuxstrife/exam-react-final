@@ -110,11 +110,14 @@ function asyncNeutralVote({ id, fromUpVote }) {
   };
 }
 
-function asyncAddThread({ title, body, category }) {
+function asyncAddThread({
+  title, body, category, callback,
+}) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
       const thread = await api.addThread({ title, body, category });
+      callback();
       dispatch(addThreadActionCreator(thread));
     } catch (error) {
       alert(error.message);

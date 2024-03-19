@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncPopulateLeaderboard } from '../states/leader-board/action';
 import LeaderboardList from '../component/general/list/LeaderboardList';
+import { PageContainer } from '../component/styled/container';
+import { H2Label } from '../component/styled/label';
 
 function LeaderboardPage() {
   const leaderboards = useSelector((states) => states.leaderboards);
@@ -13,10 +15,10 @@ function LeaderboardPage() {
   }, [dispatch]);
 
   return (
-    <section className="leaderboard-page">
-      <h2>Klasemen Pengguna Aktif</h2>
+    <PageContainer>
+      <H2Label>Klasemen Pengguna Aktif</H2Label>
       <LeaderboardList leaderboards={leaderboards} />
-    </section>
+    </PageContainer>
   );
 }
 

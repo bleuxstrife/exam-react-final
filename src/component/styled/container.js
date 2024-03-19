@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
-    font-family: 'Inter', sans-serif;
     color: var(--on-background);
     background-color: var(--background);
     min-height: 100vh;
@@ -23,8 +22,18 @@ const PageContainer = styled.section`
 
 const ListContainer = styled.div`
     margin-top: 32px;
-    padding: 16px 8px;
+    padding: ${(props) => (props.withPadding ? '16px 8px' : 'none')};
+    display: ${(props) => props.display};
+    flex-direction: ${(props) => props.flexDirection};
+    gap: ${(props) => props.gap};
 `;
+
+ListContainer.defaultProps = {
+  withPadding: true,
+  flexDirection: 'none',
+  gap: 'none',
+  display: 'block',
+};
 
 const ActionContainer = styled.div`
     position: fixed;
