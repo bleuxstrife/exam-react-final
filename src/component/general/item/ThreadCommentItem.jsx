@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
-import { postedAt } from '../../utils/date-format';
+import { postedAt } from '../../../utils/date-format';
 import UpVoteButton from '../button/UpVoteButton';
 import DownVoteButton from '../button/DownVoteButton';
 
@@ -51,13 +51,11 @@ function ThreadCommentItem({
       <div className="detail-thread__comment-item__body">{parse(content)}</div>
       <div className="detail-thread__comment-item__footer">
         <UpVoteButton
-          className="detail-thread__comment-item__upvote-button"
           isUpvote={isUpvote}
           voteCount={upVotesBy.length}
           handler={upVoteHandler}
         />
         <DownVoteButton
-          className="detail-thread__comment-item__downvote-button"
           isDownvote={isDownVote}
           voteCount={downVotesBy.length}
           handler={downVoteHandler}

@@ -3,17 +3,19 @@ import {
   Navigate, Route, Routes, useNavigate,
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import Navigation from './component/nav/Navigation';
+import Navigation from './component/general/nav/Navigation';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { asyncUnsetAuthUser } from './states/auth/action';
 import { asyncPreloadProcess } from './states/preload/action';
-import Loading from './component/loading/Loading';
+import Loading from './component/general/loading/Loading';
 import LeaderboardPage from './pages/LeaderboardPage';
 import ThreadPage from './pages/ThreadPage';
 import AddThreadPage from './pages/AddThreadPage';
 import ThreadDetailPage from './pages/ThreadDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { TitleBar, TopBar } from './component/styled/header';
+import { AppContainer, MainContainer } from './component/styled/container';
 
 function App() {
   const authUser = useSelector((states) => states.authUser);
@@ -36,27 +38,28 @@ function App() {
   }
 
   return (
-    <div className="app-container">
+    <AppContainer>
       <header>
-        <div className="top-bar">
-          <h2>Forum App</h2>
+        <TopBar>
+          <TitleBar>Forum App</TitleBar>
           <Navigation authUser={authUser} signOutHandler={onSignOut} />
-        </div>
+        </TopBar>
         <Loading />
       </header>
-      <main>
+      <MainContainer>
         <Routes>
           <Route path="/" element={<ThreadPage />} />
           <Route path="/threads/:id" element={<ThreadDetailPage />} />
-          {authUser && <Route path="/add-thread" element={<AddThreadPage />} /> }
+          {authUser && <Route path="/add-thread" element={<AddThreadPage />} />}
           {!authUser && <Route path="/login" element={<LoginPage />} />}
           {!authUser && <Route path="/register" element={<RegisterPage />} />}
           <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="/not-found" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate replace to="/not-found" />} />
         </Routes>
-      </main>
-    </div>
+      </MainContainer>
+
+    </AppContainer>
   );
 }
 

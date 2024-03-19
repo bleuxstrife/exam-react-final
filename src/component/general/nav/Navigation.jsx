@@ -6,37 +6,37 @@ import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 import { TfiBarChartAlt } from 'react-icons/tfi';
 import NavItem from './NavItem';
 import NavProfile from './NavProfile';
+import { Li } from '../../styled/header';
 
 function Navigation({ authUser = null, signOutHandler }) {
-  const nav = useNavigate();
-  const toLogin = () => nav('/login');
-  const toThread = () => nav('/');
-  const toLeaderboard = () => nav('/leaderboard');
+  const navigate = useNavigate();
+  const toLogin = () => navigate('/login');
+  const toThread = () => navigate('/');
+  const toLeaderboard = () => navigate('/leaderboard');
 
   return (
-    <nav className="navigation">
+    <nav>
       <ul>
         {authUser && (
-          <li>
+          <Li>
             <NavItem title={authUser?.name} icon={<NavProfile authUser={authUser} />} />
-          </li>
+          </Li>
         )}
-        <li>
+        <Li>
           <NavItem title="Diskusi" icon={<HiOutlineChatBubbleLeftRight />} onClick={toThread} />
-        </li>
-        <li>
+        </Li>
+        <Li>
           <NavItem title="LeaderBoards" icon={<TfiBarChartAlt />} onClick={toLeaderboard} />
-        </li>
+        </Li>
         {authUser && (
-          <li>
+          <Li>
             <NavItem title="Logout" icon={<AiOutlineLogout />} onClick={signOutHandler} />
-          </li>
+          </Li>
         )}
         {!authUser && (
-          <li>
+          <Li>
             <NavItem title="Login" icon={<AiOutlineLogin />} onClick={toLogin} />
-
-          </li>
+          </Li>
         )}
       </ul>
     </nav>

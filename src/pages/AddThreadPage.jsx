@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import ThreadInput from '../component/input/ThreadInput';
+import ThreadInput from '../component/general/input/ThreadInput';
 import { asyncAddThread } from '../states/thread/action';
 
 function AddThreadPage() {

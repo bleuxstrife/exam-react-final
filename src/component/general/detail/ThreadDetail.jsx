@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
-import { showFormattedDate } from '../../utils/date-format';
+import { showFormattedDate } from '../../../utils/date-format';
 import { commentShape, ownerShape } from '../item/ThreadCommentItem';
 import ThreadCommentList from '../list/ThreadCommentList';
 import ThreadCommentInput from '../input/ThreadCommentInput';
@@ -55,13 +55,13 @@ function ThreadDetail({
           <strong>Anda Suka Diskusi Ini ? :</strong>
         </p>
         <UpVoteButton
-          className="detail-upvote__button"
+          iconSize={20}
           isUpvote={isUpvote}
           voteCount={upVotesBy.length}
           handler={upVoteHandler}
         />
         <DownVoteButton
-          className="detail-downvote__button"
+          iconSize={20}
           isDownvote={isDownVote}
           voteCount={downVotesBy.length}
           handler={downVoteHandler}

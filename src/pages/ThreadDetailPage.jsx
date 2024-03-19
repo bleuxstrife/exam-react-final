@@ -12,7 +12,7 @@ import {
   asyncUpVoteComment,
   asyncUpVoteDetail,
 } from '../states/thread-detail/action';
-import ThreadDetail from '../component/detail/ThreadDetail';
+import ThreadDetail from '../component/general/detail/ThreadDetail';
 
 function ThreadDetailPage() {
   const { id } = useParams('id');

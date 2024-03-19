@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { asyncRegisterUser } from '../states/auth/action';
-import RegisterInput from '../component/input/RegisterInput';
+import RegisterInput from '../component/general/input/RegisterInput';
 
 function RegisterPage() {
   const loginPath = '/login';

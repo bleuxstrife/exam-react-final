@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadItem, { threadShape } from '../item/ThreadItem';
+import { ListContainer } from '../../styled/container';
+import { PLabel } from '../../styled/label';
+import baseColor from '../../../utils/base-color';
 
 function ThreadList({
   threads, upVote, downVote, neutralVote,
 }) {
   if (threads.length === 0) {
     return (
-      <div className="thread-list__empty">
-        <p>Tidak ada data</p>
-      </div>
+      <ListContainer>
+        <PLabel textAlign="center" color={baseColor.onBackgroundGrey}>
+          Tidak ada data
+        </PLabel>
+      </ListContainer>
     );
   }
 
   return (
-    <div className="thread-list">
+    <ListContainer>
       {
             threads.map((item) => (
               <ThreadItem
@@ -26,7 +31,7 @@ function ThreadList({
               />
             ))
         }
-    </div>
+    </ListContainer>
   );
 }
 

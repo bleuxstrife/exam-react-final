@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import parse from 'html-react-parser';
-import { SlActionUndo } from 'react-icons/sl';
 import { userShape } from './LeaderboardItem';
-import { postedAt } from '../../utils/date-format';
+import { postedAt } from '../../../utils/date-format';
 import UpVoteButton from '../button/UpVoteButton';
 import DownVoteButton from '../button/DownVoteButton';
+import {
+  ThreadBody,
+  ThreadComment,
+  ThreadContainer,
+  ThreadFooter,
+  ThreadHeader,
+  ThreadTitle,
+} from '../../styled/thread';
+import { CategoryLabel, CustomLink, PLabel } from '../../styled/label';
+import CommentIcon from '../icon/CommentIcon';
 
 function ThreadItem({
   id, title, body, category, createdAt,
@@ -35,39 +43,41 @@ function ThreadItem({
   };
 
   return (
-    <div className="thread-item">
-      <div className="thread-item__header">
-        <h3 className="thread-item__title"><Link to={`/threads/${id}`}>{title || 'Tidak ada judul'}</Link></h3>
-        <p className="thread-item__category">
+    <ThreadContainer>
+      <ThreadHeader>
+        <ThreadTitle>
+          <CustomLink textDecoration="none" to={`/threads/${id}`}>
+            {title || 'Tidak ada judul'}
+          </CustomLink>
+        </ThreadTitle>
+        <CategoryLabel>
           #
           {category}
-        </p>
-      </div>
-      <div className="thread-item__body">{parse(body)}</div>
-      <div className="thread-item__footer">
+        </CategoryLabel>
+      </ThreadHeader>
+      <ThreadBody>{parse(body)}</ThreadBody>
+      <ThreadFooter>
         <UpVoteButton
           isUpvote={isUpvote}
-          className="thread-upvote__button"
           voteCount={upVotesBy.length}
           handler={upVoteHandler}
         />
         <DownVoteButton
           isDownvote={isDownVote}
-          className="thread-downvote__button"
           voteCount={downVotesBy.length}
           handler={downVoteHandler}
         />
-        <div className="thread-item__total-comments">
-          <SlActionUndo />
+        <ThreadComment>
+          <CommentIcon />
           {totalComments}
-        </div>
-        <p>
+        </ThreadComment>
+        <PLabel>
           Dibuat oleh&nbsp;
           <strong>{user.name}</strong>
-        </p>
-        <p>{postedAt(createdAt)}</p>
-      </div>
-    </div>
+        </PLabel>
+        <PLabel>{postedAt(createdAt)}</PLabel>
+      </ThreadFooter>
+    </ThreadContainer>
   );
 }
 

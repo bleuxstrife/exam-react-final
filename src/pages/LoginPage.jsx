@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import LoginInput from '../component/input/LoginInput';
+import LoginInput from '../component/general/input/LoginInput';
 import { asyncSetAuthUser } from '../states/auth/action';
 
 function LoginPage() {

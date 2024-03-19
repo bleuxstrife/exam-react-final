@@ -2,10 +2,12 @@ import React from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import ActionButton from '../component/button/ActionButton';
+import ActionButton from '../component/general/button/ActionButton';
 import { asyncPopulateThreadAndUser } from '../states/shared/action';
-import ThreadList from '../component/list/ThreadList';
+import ThreadList from '../component/general/list/ThreadList';
 import { asyncDownVote, asyncNeutralVote, asyncUpVote } from '../states/thread/action';
+import { PageContainer } from '../component/styled/container';
+import { H2Label } from '../component/styled/label';
 
 function ThreadPage() {
   const authUser = useSelector((states) => states.authUser);
@@ -54,8 +56,8 @@ function ThreadPage() {
   }));
 
   return (
-    <section className="thread-page">
-      <h2>Semua Diskusi</h2>
+    <PageContainer>
+      <H2Label>Semua Diskusi</H2Label>
       <ThreadList
         threads={threadList}
         upVote={upVote}
@@ -70,8 +72,7 @@ function ThreadPage() {
         child={<FiPlus />}
       />
       )}
-
-    </section>
+    </PageContainer>
   );
 }
 
