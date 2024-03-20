@@ -7,6 +7,15 @@ import ThreadCommentList from '../list/ThreadCommentList';
 import ThreadCommentInput from '../input/ThreadCommentInput';
 import UpVoteButton from '../button/UpVoteButton';
 import DownVoteButton from '../button/DownVoteButton';
+import {
+  ThreadBody,
+  ThreadCommentDetail,
+  ThreadFooter,
+  ThreadHeader,
+  ThreadSubInfo,
+  ThreadTitleH2,
+} from '../../styled/thread';
+import { CategoryLabel, PLabel } from '../../styled/label';
 
 function ThreadDetail({
   id, title, body, category, createdAt, owner, upVotesBy, downVotesBy,
@@ -35,47 +44,47 @@ function ThreadDetail({
   };
   return (
     <div>
-      <div className="detail-thread__header">
-        <h2 className="detail-thread__title">{title}</h2>
-        <p className="detail-thread__category">
+      <ThreadHeader>
+        <ThreadTitleH2>{title}</ThreadTitleH2>
+        <CategoryLabel fontSize="18px">
           #
           {category}
-        </p>
-      </div>
-      <div className="detail-thread__sub-info">
-        <p>{showFormattedDate(createdAt)}</p>
-        <p>
+        </CategoryLabel>
+      </ThreadHeader>
+      <ThreadSubInfo>
+        <PLabel>{showFormattedDate(createdAt)}</PLabel>
+        <PLabel>
           Dibuat oleh&nbsp;
           <strong>{owner.name}</strong>
-        </p>
-      </div>
-      <div className="detail-thread__body">{parse(body)}</div>
-      <div className="detail-thread__footer">
-        <p>
+        </PLabel>
+      </ThreadSubInfo>
+      <ThreadBody isShort={false}>{parse(body)}</ThreadBody>
+      <ThreadFooter marginTop="32px">
+        <PLabel textTransform="uppercase">
           <strong>Anda Suka Diskusi Ini ? :</strong>
-        </p>
+        </PLabel>
         <UpVoteButton
-          iconSize={20}
+          iconSize="20px"
           isUpvote={isUpvote}
           voteCount={upVotesBy.length}
           handler={upVoteHandler}
         />
         <DownVoteButton
-          iconSize={20}
+          iconSize="20px"
           isDownvote={isDownVote}
           voteCount={downVotesBy.length}
           handler={downVoteHandler}
         />
-      </div>
+      </ThreadFooter>
       {authUser && <ThreadCommentInput submitHandler={addComment} />}
-      <div className="detail-thread__comment">
-        <p className="detail-thread__comment-header">
+      <ThreadCommentDetail>
+        <PLabel textTransform="uppercase">
           <strong>
             Komentar (
             {comments.length}
             )
           </strong>
-        </p>
+        </PLabel>
         <ThreadCommentList
           comments={comments}
           threadId={id}
@@ -84,8 +93,7 @@ function ThreadDetail({
           neutralVote={neutralVoteComment}
           authUser={authUser}
         />
-      </div>
-
+      </ThreadCommentDetail>
     </div>
   );
 }

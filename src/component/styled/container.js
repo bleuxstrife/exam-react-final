@@ -21,7 +21,7 @@ const PageContainer = styled.section`
 `;
 
 const ListContainer = styled.div`
-    margin-top: 32px;
+    margin-top: ${(props) => props.marginTop};
     padding: ${(props) => (props.withPadding ? '16px 8px' : 'none')};
     display: ${(props) => props.display};
     flex-direction: ${(props) => props.flexDirection};
@@ -29,6 +29,7 @@ const ListContainer = styled.div`
 `;
 
 ListContainer.defaultProps = {
+  marginTop: '32px',
   withPadding: true,
   flexDirection: 'none',
   gap: 'none',

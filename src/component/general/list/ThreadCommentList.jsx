@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadCommentItem, { commentShape } from '../item/ThreadCommentItem';
+import { ListContainer } from '../../styled/container';
+import { PLabel } from '../../styled/label';
+import baseColor from '../../../utils/base-color';
 
 function ThreadCommentList({
   comments, upVote, downVote, neutralVote, authUser, threadId,
 }) {
   if (comments.length === 0) {
     return (
-      <div className="detail-thread__comment-list__empty">
-        <p>Tidak ada komentar</p>
-      </div>
+      <ListContainer marginTop="8px">
+        <PLabel textAlign="center" color={baseColor.onBackgroundGrey}>
+          Tidak ada data komentar
+        </PLabel>
+      </ListContainer>
     );
   }
 
   return (
-    <div className="detail-thread__comment-list">
+    <ListContainer marginTop="8px">
       {
         comments.map((item) => (
           <ThreadCommentItem
@@ -28,7 +33,7 @@ function ThreadCommentList({
           />
         ))
       }
-    </div>
+    </ListContainer>
   );
 }
 ThreadCommentList.defaultProps = {

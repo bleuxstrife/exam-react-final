@@ -18,14 +18,14 @@ function DownVoteButton({
 }
 
 DownVoteButton.defaultProps = {
-  iconSize: 18,
+  iconSize: '18px',
 };
 
 DownVoteButton.propTypes = {
   isDownvote: PropTypes.bool.isRequired,
   voteCount: PropTypes.number.isRequired,
   handler: PropTypes.func.isRequired,
-  iconSize: PropTypes.number,
+  iconSize: PropTypes.string,
 };
 
 export default DownVoteButton;

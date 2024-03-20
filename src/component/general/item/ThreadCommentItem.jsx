@@ -4,6 +4,15 @@ import parse from 'html-react-parser';
 import { postedAt } from '../../../utils/date-format';
 import UpVoteButton from '../button/UpVoteButton';
 import DownVoteButton from '../button/DownVoteButton';
+import {
+  CommentBody,
+  CommentContainer,
+  CommentFooter,
+  CommentHeader,
+  CommentOwner,
+  CommentOwnerImg,
+} from '../../styled/thread';
+import { PLabel } from '../../styled/label';
 
 function ThreadCommentItem({
   id,
@@ -40,16 +49,16 @@ function ThreadCommentItem({
   };
 
   return (
-    <div className="detail-thread__comment-item">
-      <div className="detail-thread__comment-item__header">
-        <div className="detail-thread__comment-item__owner">
-          <img src={owner.avatar} alt={owner.name} />
-          <p>{owner.name}</p>
-        </div>
-        <p>{postedAt(createdAt)}</p>
-      </div>
-      <div className="detail-thread__comment-item__body">{parse(content)}</div>
-      <div className="detail-thread__comment-item__footer">
+    <CommentContainer>
+      <CommentHeader>
+        <CommentOwner>
+          <CommentOwnerImg src={owner.avatar} alt={owner.name} />
+          <PLabel fontWeight="600">{owner.name}</PLabel>
+        </CommentOwner>
+        <PLabel>{postedAt(createdAt)}</PLabel>
+      </CommentHeader>
+      <CommentBody>{parse(content)}</CommentBody>
+      <CommentFooter>
         <UpVoteButton
           isUpvote={isUpvote}
           voteCount={upVotesBy.length}
@@ -60,8 +69,8 @@ function ThreadCommentItem({
           voteCount={downVotesBy.length}
           handler={downVoteHandler}
         />
-      </div>
-    </div>
+      </CommentFooter>
+    </CommentContainer>
   );
 }
 

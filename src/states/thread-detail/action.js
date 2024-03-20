@@ -107,7 +107,7 @@ function asyncClearThreadDetail() {
   };
 }
 
-function asyncThreadDetail({ id }) {
+function asyncThreadDetail({ id, errorCallback }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
@@ -115,6 +115,7 @@ function asyncThreadDetail({ id }) {
       dispatch(receiveThreadDetailActionCreator(thread));
     } catch (error) {
       alert(error.message);
+      errorCallback();
     }
     dispatch(hideLoading());
   };

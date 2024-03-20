@@ -18,14 +18,14 @@ function UpVoteButton({
 }
 
 UpVoteButton.defaultProps = {
-  iconSize: 18,
+  iconSize: '18px',
 };
 
 UpVoteButton.propTypes = {
   isUpvote: PropTypes.bool.isRequired,
   voteCount: PropTypes.number.isRequired,
   handler: PropTypes.func.isRequired,
-  iconSize: PropTypes.number,
+  iconSize: PropTypes.string,
 };
 
 export default UpVoteButton;

@@ -66,7 +66,6 @@ function ThreadPage() {
       />
       {authUser && (
       <ActionButton
-        className="thread-page__action"
         title="Tambah Thread"
         onClickAction={toAddThread}
         child={<FiPlus />}

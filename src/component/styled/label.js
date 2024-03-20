@@ -17,7 +17,8 @@ const PLabel = styled.p`
     color: ${(props) => props.color};
     flex: ${(props) => props.flex};
     font-size: ${(props) => props.fontSize};
-    font-weight" ${(props) => props.fontWeight};
+    font-weight: ${(props) => props.fontWeight};
+    text-transform: ${(props) => props.textTransform};
 `;
 
 PLabel.defaultProps = {
@@ -26,6 +27,7 @@ PLabel.defaultProps = {
   flex: 'none',
   fontSize: '16px',
   fontWeight: 'normal',
+  textTransform: 'none',
 };
 
 const CategoryLabel = styled.p`
@@ -33,23 +35,23 @@ const CategoryLabel = styled.p`
     border-radius: 4px;
     color: ${(props) => props.textColor};
     display: inline-block;
-    font-size: 12px;
+    font-size: ${(props) => props.fontSize};
     padding: 4px 8px
 `;
 
 CategoryLabel.defaultProps = {
   borderColor: baseColor.onBackground,
   textColor: baseColor.onBackground,
+  fontSize: '12px',
 };
 
 const CustomLink = styled(Link)`
     text-decoration: ${(props) => props.textDecoration};
-    color: ${(props) => props.textColor}
+    color: ${baseColor.onBackground}
 `;
 
 CustomLink.defaultProps = {
   textDecoration: 'underline',
-  textColor: baseColor.onBackground,
 };
 
 export {

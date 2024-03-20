@@ -13,6 +13,7 @@ import {
   asyncUpVoteDetail,
 } from '../states/thread-detail/action';
 import ThreadDetail from '../component/general/detail/ThreadDetail';
+import { PageContainer } from '../component/styled/container';
 
 function ThreadDetailPage() {
   const { id } = useParams('id');
@@ -87,7 +88,7 @@ function ThreadDetailPage() {
   };
 
   return (
-    <section className="detail-thread-page">
+    <PageContainer>
       <ThreadDetail
         upVote={upVote}
         downVote={downVote}
@@ -98,7 +99,7 @@ function ThreadDetailPage() {
         neutralVoteComment={neutralVoteComment}
         {...threadDetail}
       />
-    </section>
+    </PageContainer>
   );
 }
 

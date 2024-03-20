@@ -15,7 +15,7 @@ const Input = styled.input`
 `;
 
 const InputBody = styled.textarea`
-    font-size: ;
+    font-size: ${(props) => props.fontSize};
     margin-top: 8px;
     margin-bottom: 16px;
     display: block;
@@ -34,8 +34,14 @@ InputBody.defaultProps = {
 };
 
 const Form = styled.form`
-    margin: 32px 0;
+    margin: ${(props) => props.margin};
+    margin-top: ${(props) => props.marginTop};
 `;
+
+Form.defaultProps = {
+  margin: '32px 0',
+  marginTop: '0',
+};
 
 export {
   Input,
