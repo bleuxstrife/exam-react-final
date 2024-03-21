@@ -130,6 +130,7 @@ export {
   ActionType,
   receiveThreadsActionCreator,
   asyncAddThread,
+  addThreadActionCreator,
   upVoteThreadActionCreator,
   downVoteThreadActionCreator,
   neutralizeVoteThreadActionCreator,
