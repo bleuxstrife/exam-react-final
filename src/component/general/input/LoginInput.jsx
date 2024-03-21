@@ -17,7 +17,7 @@ function LoginInput({ loginHandler }) {
     <Form>
       <Input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
       <Input type="password" placeholder="Password" value={password} onChange={handlePassChange} />
-      <Button type="submit" onClick={(e) => onLogin(e)}>Masuk</Button>
+      <Button type="button" onClick={(e) => onLogin(e)}>Masuk</Button>
     </Form>
   );
 }

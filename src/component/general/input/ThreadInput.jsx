@@ -32,7 +32,7 @@ function ThreadInput({ submitHandler }) {
         value={body}
         onChange={handleBodyChange}
       />
-      <Button type="submit" onClick={(e) => onSubmit(e)}>Tambahkan</Button>
+      <Button type="button" onClick={(e) => onSubmit(e)}>Tambahkan</Button>
     </Form>
 
   );

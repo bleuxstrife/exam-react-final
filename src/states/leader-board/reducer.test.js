@@ -1,3 +1,10 @@
+/**
+* Test Scenario
+*
+* - leaderboardReducer function
+*  - should return the initial state when given by unknown action
+*  - should return the leaderboards when given by RECEIVE_LEADER_BOARD action
+*/
 import { describe, it, expect } from 'vitest';
 import leaderboardReducer from './reducer';
 

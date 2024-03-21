@@ -19,7 +19,7 @@ function RegisterInput({ registerHandler }) {
       <Input type="text" placeholder="Nama" value={name} onChange={handleNameChange} />
       <Input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
       <Input type="password" placeholder="Password" value={password} onChange={handlePassChange} />
-      <Button type="submit" onClick={(e) => onRegister(e)}>Daftar</Button>
+      <Button type="button" onClick={(e) => onRegister(e)}>Daftar</Button>
     </Form>
   );
 }
