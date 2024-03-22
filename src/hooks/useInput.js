@@ -5,7 +5,7 @@ function useInput(defaultValue) {
   const [value, setValue] = useState(defaultValue);
   const handleValueChange = (event) => setValue(event.target.value);
   const clear = () => setValue('');
-  return [value, clear];
+  return [value, handleValueChange, clear];
 }
 
 useInput.propTypes = {
